@@ -36,6 +36,12 @@ function getGatsbyImageData({
 
     return `${baseUrl}?${query}`
   }
+
+  // TODO handle non uploaded images the better way
+  if (!image[0]) {
+    return null
+  }
+
   const data = getImageData({
     baseUrl: image[0].url,
     sourceWidth: image[0].width,
